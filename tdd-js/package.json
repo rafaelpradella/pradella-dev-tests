@@ -1,0 +1,21 @@
+{
+  "name": "tdd-js",
+  "version": "1.0.0",
+  "description": "Following the \"JS com TDD na Prática\" course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/elpradella/my-dev-tests.git"
+  },
+  "keywords": [
+    "tdd",
+    "javascript",
+    "tutorial"
+  ],
+  "author": "Rafael Pradella",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/elpradella/my-dev-tests#readme"
+}
