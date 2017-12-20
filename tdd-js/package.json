@@ -4,6 +4,7 @@
   "description": "Following the \"JS com TDD na Prática\" course",
   "main": "index.js",
   "scripts": {
+    "lint": "./node_modules/.bin/eslint src/*.js ; exit 0",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,5 +18,10 @@
   ],
   "author": "Rafael Pradella",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/elpradella/my-dev-tests#readme"
+  "homepage": "https://bitbucket.org/elpradella/my-dev-tests#readme",
+  "devDependencies": {
+    "eslint": "^4.13.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
+  }
 }
