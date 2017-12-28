@@ -7,7 +7,8 @@
     "lint": "./node_modules/.bin/eslint src/*.js ; exit 0",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --colors --progress",
-    "watch": "npm run build -- --watch"
+    "dev": "NODE_ENV='development' webpack --colors --progress",
+    "watch": "npm run dev -- --watch"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,8 @@
     "webpack": "^3.10.0"
   },
   "dependencies": {
-    "ramda": "^0.25.0"
+    "ramda": "^0.25.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   }
 }
