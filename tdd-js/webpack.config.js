@@ -8,7 +8,7 @@
      },
 
      output:{
-        filename: './src/prod/build.js'
+        filename: './src/build/build.js'
      },
 
      module:{
