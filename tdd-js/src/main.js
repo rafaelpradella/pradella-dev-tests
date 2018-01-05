@@ -1,11 +1,25 @@
-import { union } from 'ramda';
-import sum, {sub} from "./utils";
+const Calc = {
+    
+    isValidParameters: function(a,b){
+        return (a && b && typeof a === "number" && typeof b === "number") ? true : false;
+    },
+    
+    sum: function(a,b){
+        return (this.isValidParameters(a,b)) ? a + b : false;
+    }, 
 
-import react from 'react';
-import reactDOM from 'react-dom';
+    sub: function(a,b){
+        return (this.isValidParameters(a,b)) ? a - b : false;
+    },
 
-const arr1 = [1,1,1,2,2,3,4,5,6,6];
-const arr2 = [5,6,6,6,7,8,8,9,9,10,1];
-const allArrays = union(arr1, arr2);
+    mult: function(a,b){
+        return (this.isValidParameters(a,b)) ? a * b : false;
+    }, 
 
-console.log(allArrays);
+    div: function(a,b){
+        if( b === 0 ) return "Please, don´t divide by zero. For our safety as human race!"
+        return (this.isValidParameters(a,b)) ? a / b : false;
+    }
+}
+
+module.exports = Calc;

@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/*.js ; exit 0",
     "test": "./node_modules/.bin/mocha tests/**.spec.js",
+    "test:tdd": "npm run test -- --watch",
     "build": "webpack --colors --progress",
     "dev": "NODE_ENV='development' webpack --colors --progress",
     "watch": "npm run dev -- --watch",
@@ -34,7 +35,7 @@
     "eslint-plugin-import": "^2.8.0",
     "mocha": "^4.1.0",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.9.7"
+    "webpack-dev-server": "2.7.1"
   },
   "dependencies": {
     "ramda": "^0.25.0",
