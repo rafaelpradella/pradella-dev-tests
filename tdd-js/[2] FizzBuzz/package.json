@@ -1,0 +1,45 @@
+{
+  "name": "tdd-js",
+  "version": "1.0.0",
+  "description": "Following the \"JS com TDD na Prática\" course",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint src/*.js ; exit 0",
+    "test": "./node_modules/.bin/mocha tests/**.spec.js",
+    "test:tdd": "npm run test -- --watch",
+    "build": "webpack --colors --progress",
+    "dev": "NODE_ENV='development' webpack --colors --progress",
+    "watch": "npm run dev -- --watch",
+    "server": "./node_modules/.bin/webpack-dev-server --inline --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/elpradella/my-dev-tests.git"
+  },
+  "keywords": [
+    "tdd",
+    "javascript",
+    "tutorial"
+  ],
+  "author": "Rafael Pradella",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/elpradella/my-dev-tests#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "eslint": "^4.13.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-html": "^4.0.1",
+    "eslint-plugin-import": "^2.8.0",
+    "mocha": "^4.1.0",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "2.7.1"
+  },
+  "dependencies": {
+    "ramda": "^0.25.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
+}
