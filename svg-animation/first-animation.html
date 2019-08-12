@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>First Animation, yay!</title>
+    <style>
+        @keyframes right-round {
+            from { stroke: rebeccapurple; stroke-width: 15px; transform: translateX(0vw) rotate(0deg) scale(1);}
+            to { stroke: mediumaquamarine; stroke-width: 1px; transform: translateX(50vw) rotate(360deg) scale(.6);}
+        }
+
+        svg{ animation: right-round 4s infinite alternate;}
+    </style>
+</head>
+<body>
+    
+
+    <!-- after-optimize.svg -->
+    <svg width="209" height="300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M162 162H37.8A30 30 0 0 1 12 116.6L68.5 22c5-8.4 14-14 23.7-14.2C197 5.4 201 64 201 124c0 104.2-39 168-166 168"/>
+    </svg>
+
+</body>
+</html>
