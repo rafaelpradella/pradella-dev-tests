@@ -27,3 +27,9 @@
 ## Optimization + SVG DOM
 
 * If jot inline, SVG only can be animated inside SVG file markup using `<style>`, `<script>` or `SMIL` (IE/EdgeHTML support nonexistent);
+
+
+## SVG Sprites
+
+* Frame-by-frame animation using `steps()` CSS;
+* Create a large SVG sprite, define it as a `background-image`, then animate the `background-position`;

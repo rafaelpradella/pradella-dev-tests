@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Plz come, meteor!</title>
+    <style>
+        @keyframes falling {
+            100% { background-position: 450px 0; }
+        }
+
+        @keyframes shake {
+            0% { transform: translate(0, 0) rotate(0deg);}
+            25% { transform: translate(2px, 0) rotate(1deg);}
+            50% { transform: translate(2px, 2px) rotate(2deg);}
+        }
+
+        body{ background-color: white; overflow: hidden; }
+
+        .u-meteor{ animation: falling .12s steps(3) infinite alternate, shake 1s ease infinite alternate;
+            background-image: url("sprite.svg");
+            background-position: 0px 0px;
+            background-size: cover;
+            display: block;
+            margin: calc(50vh - 75px) auto;
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <span class="u-meteor" aria-label="A minimalist animation of a meteor falling into the sky"></span>
+</body>
+</html>
