@@ -4,11 +4,11 @@
     <title>First Animation, yay!</title>
     <style>
         @keyframes right-round {
-            from { stroke: rebeccapurple; stroke-width: 15px; transform: translateX(0vw) rotate(0deg) scale(1);}
-            to { stroke: mediumaquamarine; stroke-width: 1px; transform: translateX(50vw) rotate(360deg) scale(.6);}
+            from { stroke: rgb(162, 86, 238); transform: translateX(0vw) rotate(0deg) scale(1);}
+            to { stroke: rgb(90, 209, 224); transform: translateX(50vw) rotate(360deg) scale(.6);}
         }
-
-        svg{ animation: right-round 4s infinite alternate;}
+        body{ background-color: #222222;}
+        svg{ animation: right-round 4s ease-in-out infinite alternate; stroke-linecap: round; stroke-width: 6px;}
     </style>
 </head>
 <body>
