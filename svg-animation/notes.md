@@ -26,10 +26,20 @@
 
 ## Optimization + SVG DOM
 
-* If jot inline, SVG only can be animated inside SVG file markup using `<style>`, `<script>` or `SMIL` (IE/EdgeHTML support nonexistent);
+* If not inline, SVG only can be animated inside SVG file markup using `<style>`, `<script>` or `SMIL` (IE/EdgeHTML support nonexistent);
 
 
 ## SVG Sprites
 
 * Frame-by-frame animation using `steps()` CSS;
 * Create a large SVG sprite, define it as a `background-image`, then animate the `background-position`;
+* Apply delays and decouple animations in layers to a more life-like experience;
+
+
+## GreenSock
+
+* Ideal for animation chaining, that could be a bit more complex/tedious to adjust in CSS;
+* It works in modules, so it´s basic functionality has 4kb (not sure if gzipped);
+* Works IE9+, fulfills some cross-browser functionality differences;
+* On export to SVG in Illustration, naming things (groups, paths) turns out as ids on XML output;
+* Stagger: loop de animações em diversos objetos, variando o delay ou as propriedades (podem ser declaradas em um array);
