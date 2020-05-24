@@ -1,7 +1,9 @@
 {
     "compilerOptions": {
         "target": "es6",
-        "outDir": "sample-app/js"
+        "outDir": "sample-app/js",
+        "noEmitOnError": true,
+        "noImplicitAny": true
     },
     "include": [
         "sample-app/ts/**/*"

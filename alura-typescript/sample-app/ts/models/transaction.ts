@@ -1,15 +1,10 @@
 class Transaction{
-
-    _data;
-    _quantity;
-    _value;
     
-    constructor(data, quantity, value){
-        
-        this._data = data;
-        this._quantity = quantity;
-        this._value = value;
-    }
+    constructor(
+        private _data: Date,
+        private _quantity: number,
+        private _value: number
+    ){}
 
     get data(){
         return this._data;
@@ -24,6 +19,6 @@ class Transaction{
     }
 
     get volume(){
-        return this._quantity * this._value;
+        return this.quantity * this.value;
     }
 }

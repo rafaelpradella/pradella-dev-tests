@@ -1,2 +1,4 @@
-const transaction = new Transaction(new Date(), 1, 100);
-console.log(transaction.volume);
+const controller = new TransactionController();
+document
+    .querySelector("form")
+    .addEventListener("submit", controller.add.bind(controller));
