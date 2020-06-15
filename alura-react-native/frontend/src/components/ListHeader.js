@@ -1,14 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Text, Image, StyleSheet, View} from 'react-native';
 
-export default function ListHeader({userName, hasStories, order}){
+export default function ListHeader({userName, userPhoto}){
     return(
-        <View style={styles.block }>
+        <View style={styles.block}>
             <Image
                 style={styles.pics}
-                source={{
-                    uri: `https://source.unsplash.com/50x50/?profile&i=${order}`
-                }}
+                source={{ uri: userPhoto }}
             />
             <Text style={styles.title}>{userName}</Text>
         </View>
@@ -23,6 +21,11 @@ const styles = StyleSheet.create({
         justifyContent: "flex-start",
         marginTop: 10,
         marginBottom: 20
+    },
+
+    stories: {
+        borderColor: "orange",
+        borderWidth: 3
     },
 
     pics: {

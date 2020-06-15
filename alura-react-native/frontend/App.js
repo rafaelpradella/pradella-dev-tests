@@ -6,44 +6,37 @@
  * @flow strict-local
  */
 
-import React, { Fragment } from 'react'
-import {Dimensions, Text, Image, ScrollView, StyleSheet, FlatList, unstable_enableLogBox} from 'react-native'
+import React, { Fragment, useState, useEffect } from 'react'
+import {StyleSheet, FlatList, Text} from 'react-native'
 import ListHeader from './src/components/ListHeader';
-
-const windowWidth = Dimensions.get('screen').width;
-
-const Infos = [
-  { id: 1, user: "ricardo.123", hasStories: true },
-  { id: 2, user: "paradis.3326"},
-  { id: 3, user: "aninha_oficial"}
-]
-
-
-const BlockPhoto = ({order}) => {
-  return (
-    <Image
-        style={styles.photo}
-        source={{
-          uri: `https://source.unsplash.com/random/300x300?i=${order}`,
-        }}
-    />
-  )
-}
+import PostPhoto from './src/components/PostPhoto';
 
 const App =  () => {
+  const [posts, setPosts] = useState([])
+
+  useEffect(() => {
+    const getPosts = async() => {
+      const postsRequest = await fetch("http://10.0.2.2:3030/feed")
+      const postsObject = await postsRequest.json()
+      setPosts(postsObject)
+    }
+    getPosts()
+  }, [])
+
   return (
-    <ScrollView style={styles.block}>
-      <FlatList
-        data={Infos}
-        keyExtractor= {item => item.id.toString()}
-        renderItem={({item, index}) => (
-          <Fragment>
-            <ListHeader userName={item.user} order={index.toString()} hasStories={!!item.hasStories} />
-            <BlockPhoto order={index.toString()} />
-          </Fragment>
-        )}
-      />
-    </ScrollView>
+    <Fragment>
+        <FlatList
+          style={styles.block}
+          data={posts}
+          keyExtractor= {item => item.id.toString()}
+          renderItem={( {item} ) => (
+            <Fragment>
+              <ListHeader userName={item.userName} userPhoto={item.userURL} />
+              <PostPhoto photoURL={item.url} />
+            </Fragment>
+          )}
+        />
+    </Fragment>
   );
 };
 
@@ -58,13 +51,6 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 50
   },
-
-  photo: {
-    width: windowWidth,
-    height: windowWidth,
-    marginBottom: 40,
-    borderRadius: 6
-  },
 });
 
-export default App;
+export default App
