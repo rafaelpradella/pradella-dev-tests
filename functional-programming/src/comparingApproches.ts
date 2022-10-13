@@ -40,11 +40,11 @@ getHighestValueThenSum([1,5,9], [9,12,5])
 // A LITTLE BIT MORE ANNOTATIONS, BUT CLEARER?
 const sumListItems = (list: number[]) => list.reduce((a, b) => a + b, 0);
 
-const getHighestValueThenSum2ElectricBoogapipe = (arr1: number[], arr2: number[]): number => {
+const pipeAndExternalFunctions = (arr1: number[], arr2: number[]): number => {
     return pipe(arr1,
         A.zip(arr2),
         A.map(pair => Math.max(...pair)),
         sumListItems,
     );
 }
-getHighestValueThenSum2ElectricBoogapipe([1,5,9], [9,12,5])
+pipeAndExternalFunctions([1,5,9], [9,12,5])

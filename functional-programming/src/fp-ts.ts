@@ -35,5 +35,3 @@ const getBarValue = flow(
 
 getBarValue(undefined)
 getBarValue(foo)
-
-// ASYNC AND ERROR HANDLING (EITHER, TASK, TASKEITHER)

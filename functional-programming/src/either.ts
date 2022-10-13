@@ -2,6 +2,8 @@ import { flow, identity, pipe } from 'fp-ts/lib/function'
 import crypto from 'crypto'
 import * as E from 'fp-ts/lib/Either'
 
+// JUST CTRL + C CTRL + V YET
+
 export class MinLengthValidationError extends Error {
     public _tag: 'PasswordMinLengthValidationError'
 
