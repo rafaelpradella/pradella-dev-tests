@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "axios": "^1.1.2",
+    "fp-ts": "^2.12.3",
+    "monocle-ts": "^2.3.13",
+    "parse-url": "^8.1.0",
+    "ramda": "^0.28.0"
+  }
+}
