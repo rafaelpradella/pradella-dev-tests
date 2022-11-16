@@ -5,11 +5,10 @@
 // 2. The data array stores the data received in the time interval (of the incoming object) - 1 minute
 // i.e. something like this [{time: '10: 56: 00 ', ...}, ..., {time: '10: 55: 00', ...}]
 
-import { interval, Observable, throttleTime, of } from "rxjs";
-import { map, scan, timeInterval, reduce, takeWhile, tap } from "rxjs/operators";
+import { interval, Observable, buffer, map, tap } from "rxjs";
 
-const INTERVAL_TO_STORE_DATA = 9000;
-const DATA_INTERVAL = 3000;
+const INTERVAL_TO_STORE_DATA = 60_000;
+const DATA_INTERVAL = 1000;
 
 console.log('INIT!');
 
@@ -24,7 +23,10 @@ interface TimeAndSale {
   price: number;
   sales: number;
 }
-//const emitDataDelay$ = interval(INTERVAL_TO_STORE_DATA);
+type FormattedTime = `${number}:${number}:${number}`;
+type FormattedSales = { time: FormattedTime } & Omit<TimeAndSale, 'time'>; 
+
+const emitDataDelay$: Observable<number> = interval(INTERVAL_TO_STORE_DATA);
 const data$: Observable<TimeAndSale> = interval(DATA_INTERVAL).pipe(
   map(() => ({
     time: new Date(),
@@ -35,9 +37,17 @@ const data$: Observable<TimeAndSale> = interval(DATA_INTERVAL).pipe(
 
 data$.pipe(
     map(({ time, ...data }: TimeAndSale) => ({ time: formatTime(time), ...data })),
+    buffer(emitDataDelay$),
+    map((bufferList: Array<FormattedSales>) => bufferList.reverse()),
+).subscribe(console.log)
+
+/*
+data$.pipe(
+    map(({ time, ...data }: TimeAndSale) => ({ time: formatTime(time), ...data })),
     scan((acc, res) => ([res, ...acc]), []),
     throttleTime(INTERVAL_TO_STORE_DATA),
 ).subscribe(console.log)
+*/
 
 /*data$.pipe(
     map(({ time, ...data }) => ({ time: formatTime(time), ...data })),
